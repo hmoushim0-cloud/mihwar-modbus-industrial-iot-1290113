@@ -27,6 +27,7 @@ fun HomeScreen(
     onItemClick: (MihwarModbusItem) -> Unit
 ) {
     val categories = listOf("الكل", "الخدمات الرئيسية", "المراقبة الحية", "التقارير الضريبية", "الإعدادات")
+    val defaultPeripheral = "3-Axis Vibration Accelerometer + Modbus RS485 Acoustic Probe"
 
     Column(
         modifier = Modifier
@@ -36,7 +37,7 @@ fun HomeScreen(
     ) {
         // Header
         Column {
-            Text("تطبيق محور الصناعي — مستقل للمساعدة في نمو حساب ا", fontSize = 22.sp, fontWeight = FontWeight.Black, color = BrandTextPrimary)
+            Text("منظومة محور للحلول الصناعية الذكية", fontSize = 22.sp, fontWeight = FontWeight.Black, color = BrandTextPrimary)
             Text("منظومة industrial_iot المتكاملة مع ربط 3-Axis Vibration Accelerometer + Modbus RS485 Acoustic Probe", fontSize = 12.sp, color = BrandTextSecondary)
         }
 
@@ -52,7 +53,7 @@ fun HomeScreen(
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
                 Column(modifier = Modifier.weight(1f)) {
-                    Text("العتاد الحي: ${state.telemetry?.peripheralName ?: '3-Axis Vibration Accelerometer + Modbus RS485 Acoustic Probe'}", fontWeight = FontWeight.Bold, color = BrandPrimary, fontSize = 13.sp)
+                    Text("العتاد الحي: ${state.telemetry?.peripheralName ?: defaultPeripheral}", fontWeight = FontWeight.Bold, color = BrandPrimary, fontSize = 13.sp)
                     Text(state.telemetry?.liveReading ?: "3-Axis Vibration Accelerometer + Modbus RS485 Acoustic Probe: ONLINE | READY", fontSize = 11.sp, color = BrandTextSecondary)
                 }
                 Badge(containerColor = BrandPrimary) {
